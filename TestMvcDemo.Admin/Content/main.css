@@ -1,0 +1,84 @@
+﻿[v-cloak] {
+    display: none !important;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    height: 100vh;
+    color: #323233;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.switchStyle .el-switch__label {
+    position: absolute;
+    display: none;
+    color: #fff !important;
+}
+
+.switchStyle .el-switch__label--left {
+    z-index: 9;
+    left: 19px;
+}
+
+.switchStyle .el-switch__label--right {
+    z-index: 9;
+    left: -4px;
+}
+
+.switchStyle .el-switch__label.is-active {
+    display: block;
+}
+
+.switchStyle.el-switch .el-switch__core,
+.el-switch .el-switch__label {
+    width: 55px !important;
+}
+
+/*卡片样式*/
+.box {
+    box-shadow: 0 0 4px #e0e0e0;
+    border-radius: 10px;
+    margin: 0 .6rem .6rem;
+    background-color: #fff;
+    padding: .6rem;
+    transform: rotate(0deg);
+    overflow: hidden;
+}
+
+    .box:first-child {
+        margin-top: .6rem;
+    }
+
+    .box.square {
+        border-radius: 6px;
+    }
+
+
+.van-button--info {
+    color: #fff;
+    background-color: rgba(194, 12, 12, 1) !important;
+    border: rgba(194, 12, 12, 1) !important;
+}
+
+
+/*.van-button--primary {
+    color: #fff;
+    background-color: rgba(194, 12, 12, 1) !important;
+    border: rgba(194, 12, 12, 1) !important;
+}*/
+
+
+.van-button--plain.van-button--primary {
+    color: rgba(194, 12, 12, 1) !important;
+}
+
+.van-button--primary {
+    border: 1px solid rgba(194, 12, 12, 1) !important;
+}

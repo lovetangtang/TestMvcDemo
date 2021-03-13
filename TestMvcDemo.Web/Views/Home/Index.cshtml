@@ -1,0 +1,53 @@
+﻿@using Common;
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>登录</title>
+    @Styles.Render("~/mobile/css")
+    <style>
+    </style>
+</head>
+<body>
+    <div id="app" v-cloak>
+        <van-skeleton :loading="loading" title :row="6">
+            首页
+
+        </van-skeleton>
+
+    </div>
+    @Scripts.Render("~/mobile/vue")
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                loading: true,
+                form: {
+
+                }
+            },
+            methods: {
+                load() {
+                    this.loading = true;
+                    axios.get('/Customer/GetDetail').then(res => {
+                        if (res.data.ResultCode == 0) {
+                        } else {
+                            this.loading = false;
+                        }
+                    }).catch(res => {
+                    })
+                }
+            },
+            components: {
+            },
+            mounted() {
+                this.load();
+            }
+        })
+    </script>
+</body>
+</html>

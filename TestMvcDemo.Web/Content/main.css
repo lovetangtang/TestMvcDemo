@@ -1,0 +1,169 @@
+﻿[v-cloak] {
+    display: none !important;
+}
+
+:root {
+    --bg-white: #fff;
+    --bg-gray: #fbfbfb;
+    --theme-pink-color: #F7ACA9;
+    --box-shadow: #e0e0e0
+}
+
+html, body, #app {
+    min-height: 100vh;
+    font-size: 14px;
+}
+
+body {
+    background-color: #fff;
+    color: #000000;
+}
+
+.van-button {
+    background-color: var(--theme-pink-color);
+    border-color: var(--theme-pink-color) !important;
+}
+
+.van-button--plain {
+    background-color: #fff;
+    color: var(--theme-pink-color);
+}
+
+    .van-button--plain.van-button--primary {
+        color: var(--theme-pink-color);
+    }
+
+.van-tabs__line {
+    background-color: var(--theme-pink-color);
+}
+
+.van-tabbar-item--active {
+    color: var(--theme-pink-color);
+}
+
+.van-checkbox__icon--checked .van-icon {
+    border-color: var(--theme-pink-color);
+    background-color: var(--theme-pink-color);
+}
+
+.van-swipe__indicator--active {
+    background-color: var(--theme-pink-color);
+}
+
+.van-tag--primary {
+    background-color: var(--theme-pink-color) !important;
+    margin: 10px;
+}
+
+.van-tag--plain {
+    background-color: var(--bg-white);
+}
+
+.van-tag--default.van-tag--plain {
+    color: var(--theme-pink-color);
+}
+
+.van-tag--plain {
+    background-color: var(--bg-white) !important;
+    color: var(--theme-pink-color) !important;
+}
+
+/*主题色图标*/
+.theme-icon {
+    color: var(--theme-pink-color);
+}
+
+/*灰色按钮*/
+.gray-btn {
+    color: #9c9c9c !important;
+    border-color: #9c9c9c !important;
+}
+
+.van-info {
+    background-color: var(--theme-pink-color) !important;
+}
+
+.van-switch--on {
+    background-color: var(--theme-pink-color);
+}
+
+/*.van-pull-refresh, .van-pull-refresh__track {
+    height: 100vh;
+}*/
+
+.van-hairline--top.van-dialog__footer .van-button {
+    background-color: var(--bg-white) !important;
+}
+
+.van-dialog__confirm, .van-dialog__confirm:active {
+    color: var(--theme-pink-color);
+}
+
+.van-dialog__confirm {
+    background-color: #fff;
+}
+
+.van-sidebar-item--select {
+    border-color: var(--theme-pink-color);
+}
+
+.van-tree-select__item--active {
+    color: var(--theme-pink-color);
+}
+
+/*卡片样式*/
+.box {
+    box-shadow: 0 0 4px #e0e0e0;
+    border-radius: 10px;
+    margin: 0 .6rem .6rem;
+    background-color: #fff;
+    padding: .6rem;
+    transform: rotate(0deg);
+    overflow: hidden;
+}
+
+    .box:first-child {
+        margin-top: .6rem;
+    }
+
+    .box.square {
+        border-radius: 6px;
+    }
+
+/*底部固定操作*/
+.bottom-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    box-shadow: 0 0 4px #cecece;
+    display: flex;
+    align-items: center;
+}
+
+/*右上角分享的提示*/
+.hint {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 10;
+}
+
+/*大标题*/
+.big-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: .6rem;
+}
+
+/*苹果底部横条样式兼容*/
+.safe-area {
+    width: 100%;
+    height: constant(safe-area-inset-bottom);
+    height: env(safe-area-inset-bottom);
+    background-color: #fff;
+}

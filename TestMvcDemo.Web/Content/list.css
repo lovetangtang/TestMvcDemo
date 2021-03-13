@@ -1,0 +1,276 @@
+﻿[v-cloak] {
+    display: none !important;
+}
+
+html, body, #app, section {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+.el-header {
+    height: 36px !important;
+    margin-top: 20px;
+}
+
+.main-display {
+    display: block !important;
+}
+
+.el-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.el-pagination {
+    text-align: right;
+    margin-top: 10px;
+}
+
+.el-select, .el-cascader, .el-date-editor--datetimerange.el-input, .el-date-editor--datetimerange.el-input__inner, .el-date-editor--monthrange.el-input, .el-date-editor--monthrange.el-input__inner, .el-date-editor.el-input {
+    width: 100%;
+}
+
+.el-table td, .el-table th {
+    padding: 6px 0;
+}
+
+.table {
+    height: 100%;
+    overflow: auto;
+    border: 1px solid #EBEEF5;
+}
+
+.operation-btn {
+    display: inline-block;
+}
+
+.right {
+    float: right;
+}
+
+.table .el-table {
+    border: none;
+}
+
+    .table .el-table__fixed-right::before,
+    .table .el-table__fixed::before,
+    .table .el-table--border::after,
+    .table .el-table--group::after,
+    .table .el-table::before {
+        background-color: #fff;
+    }
+
+    .table .el-table th:last-child {
+        border-right: none;
+    }
+
+.search-input {
+    width: 180px !important;
+    height: 36px;
+    margin-right: 10px;
+}
+
+    .search-input input {
+        height: 36px;
+    }
+
+    .search-input .el-input__icon {
+        line-height: 36px;
+    }
+
+.el-input.is-disabled .el-input__inner,
+.el-input.is-disabled .el-input__inner,
+.el-range-editor.is-disabled,
+.el-range-editor.is-disabled input,
+.el-textarea.is-disabled .el-textarea__inner {
+    background-color: #FFF !important;
+    border: 1px solid #DCDFE6 !important;
+    color: #606266 !important;
+    cursor: auto !important;
+}
+
+    .el-range-editor.is-disabled input {
+        border: none !important;
+    }
+
+    .el-checkbox__input.is-disabled + span.el-checkbox__label,
+    .el-checkbox__input.is-disabled.is-checked .el-checkbox__inner,
+    .el-checkbox__input.is-disabled .el-checkbox__inner::after,
+    .el-range-editor.is-disabled .el-range-separator {
+        color: #606266 !important;
+    }
+
+        .el-checkbox__input.is-disabled.is-checked .el-checkbox__inner::after {
+            border-color: #606266 !important;
+        }
+
+.el-checkbox__input.is-disabled.is-checked .el-checkbox__inner {
+    background-color: #FFF !important;
+}
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, .3)
+}
+
+.el-drawer__body {
+    padding: 20px;
+}
+
+.drawer-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+    .drawer-content form {
+        flex: 1;
+    }
+
+.drawer-footer {
+    display: flex;
+}
+
+    .drawer-footer button {
+        flex: 1;
+    }
+
+.el-radio__input.is-disabled + span.el-radio__label {
+    color: rgb(96, 98, 102) !important;
+}
+
+.rich-editor {
+    max-width: 100%;
+    padding: 20px;
+    border: 1px solid #DCDFE6;
+    border-radius: 5px;
+}
+
+    .rich-editor img {
+        max-width: 100%;
+        height: auto;
+    }
+
+.el-radio__input.is-disabled + span.el-radio__label {
+    color: rgb(96, 98, 102) !important;
+}
+
+.switch .el-switch__label * {
+    font-size: 12px;
+}
+
+.switch .el-switch__label {
+    position: absolute;
+    display: none;
+    color: #fff;
+}
+/*打开时文字位置设置*/
+.switch .el-switch__label--right {
+    z-index: 1;
+    right: -6px;
+}
+/*关闭时文字位置设置*/
+.switch .el-switch__label--left {
+    z-index: 1;
+    left: 19px;
+}
+/*显示文字*/
+.switch .el-switch__label.is-active {
+    display: block;
+}
+
+.switch.el-switch .el-switch__core,
+.el-switch .el-switch__label {
+    width: 50px !important;
+}
+
+.el-switch.is-disabled .el-switch__core, .el-switch.is-disabled .el-switch__label {
+    cursor: default;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.el-table .signIn-row {
+    background: rgba(154, 176, 250, 1);
+}
+
+.el-table .notSignIn-row {
+    background: rgba(255, 206, 146, 1);
+}
+
+.el-table .late-row {
+    background: rgba(223, 170, 255, 1);
+}
+
+.el-table .absent-row {
+    background: rgba(255, 160, 160, 1);
+}
+
+.el-table .reserve-row {
+    background: rgba(178, 236, 207, 1);
+}
+
+.el-table .notReserve-row {
+    background: rgba(255, 247, 203, 1);
+}
+
+.tip {
+    font-size: 12px;
+    color: #f00;
+}
+
+.el-image__error, .el-image__inner, .el-image__placeholder {
+    width: auto !important;
+}
+
+.picture-card {
+    display: flex;
+}
+
+    .picture-card img {
+        margin-right: 10px;
+    }
+
+.form-label {
+    display: flex;
+}
+
+    .form-label .text {
+        padding-left: 5px;
+        width: 50px;
+    }
+
+.el-form-item .form-bottom {
+    margin-bottom: 22px;
+}
+
+.tips {
+    color: #d94141;
+}
+
+.table-form {
+    border-collapse: collapse;
+    border: none;
+    margin-bottom: 10px;
+    width: 500px;
+}
+
+    .table-form td {
+        border: 2px solid #EBEEF5;
+        padding: 8px;
+    }
+
+.el-dropdown {
+    margin-left: 10px;
+}

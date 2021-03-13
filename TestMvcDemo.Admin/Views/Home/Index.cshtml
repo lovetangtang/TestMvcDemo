@@ -1,0 +1,278 @@
+﻿
+@{
+    /**/
+
+    /**/
+
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    @Styles.Render("~/content/css")
+    <title>企业文化考试系统</title>
+    <style>
+        html, body, #app, section, .el-aside {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+            background-color: #fff;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, .3)
+        }
+
+        .logo {
+            width: 200px;
+            margin: auto;
+        }
+
+            .logo img {
+                width: 100%;
+            }
+
+        .el-aside {
+            border-right: solid 1px #e6e6e6;
+        }
+
+        .el-menu {
+            border: none;
+        }
+
+        .el-header {
+            background-color: #C20C0C;
+            height: 40px !important;
+            display: flex;
+            padding: 0 10px !important;
+        }
+
+        .el-main {
+            padding: 5px;
+        }
+
+        .el-tabs {
+            height: 100%;
+            padding: 41px 0 0;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .el-tabs__header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .el-tabs__content {
+            height: 100%;
+        }
+
+            .el-tabs__content div {
+                height: 99%;
+            }
+
+        iframe {
+            height: 100%;
+            width: 100%;
+            border: none;
+        }
+
+        .fold {
+            line-height: 40px;
+            color: #fff;
+            font-size: 28px;
+        }
+
+        .collapse {
+            width: 64px !important;
+        }
+
+        .not-collapse {
+            width: 210px !important;
+        }
+
+        .el-icon-s-fold, .el-icon-s-unfold, .el-icon-message:hover {
+            cursor: pointer;
+        }
+
+        .current {
+            height: 40px;
+            line-height: 40px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .navbar {
+            display: flex;
+            position: absolute;
+            right: 10px;
+        }
+
+            .navbar .operate {
+            }
+
+            .navbar .chat {
+                line-height: 40px;
+                color: #fff;
+                font-size: 14px;
+                margin-right: 10px;
+            }
+
+        .el-dropdown-menu {
+            width: 120px;
+        }
+
+            .el-dropdown-menu li {
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <div id="app" v-cloak>
+        <el-container>
+            <el-header>
+                <div class="fold">
+                    <i :class="[isCollapse?'el-icon-s-unfold':'el-icon-s-fold']" @@click="isCollapse=!isCollapse"></i>
+                </div>
+                <div class="navbar">
+                    <el-dropdown class="operate" size="small" @@command="handleCommand">
+                        <span class="el-dropdown-link current">
+                            @ViewBag.UserName<i class="el-icon-arrow-down el-icon--right"></i>
+                        </span>
+                        <el-dropdown-menu slot="dropdown">
+                            <el-dropdown-item command="logOut">登出</el-dropdown-item>
+                        </el-dropdown-menu>
+                    </el-dropdown>
+                </div>
+            </el-header>
+            <el-container>
+                <el-aside :class="[isCollapse?'collapse':'not-collapse']">
+                    <el-menu :collapse="isCollapse" unique-opened="true">
+                        <template v-for="(parent,index) in menus">
+                            <el-submenu :index="index">
+                                <template slot="title">
+                                    <i :class="parent.icon"></i>
+                                    <span slot="title">{{parent.label}}</span>
+                                </template>
+
+                                <template :index="index"
+                                          v-for="(menu,index) in parent.children">
+                                    <el-menu-item  @@click="addTab(menu)">
+                                        <i :class="menu.icon"></i>
+                                        {{menu.label}}
+                                    </el-menu-item>
+                                </template>
+
+                            </el-submenu>
+                        </template>
+
+                    </el-menu>
+                </el-aside>
+                <el-main>
+                    <el-tabs v-model="currentTab" type="card" @@tab-remove="removeTab"
+                             style="color:#EB5E01">
+                        <el-tab-pane v-for="(item, index) in tabs"
+                                     :key="item.name"
+                                     :label="item.title"
+                                     :name="item.name"
+                                     ref="tabs"
+                                     :closable="item.closable">
+                            <div style="padding-top:10px;">
+                                <iframe :src="item.url" id="iframe"></iframe>
+                            </div>
+                        </el-tab-pane>
+                    </el-tabs>
+                </el-main>
+            </el-container>
+        </el-container>
+    </div>
+    @Scripts.Render("~/bundles/vue")
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    isCollapse: false,
+                    menus: [],
+                    currentTab: '首页',
+                    tabs: [{
+                        title: '首页',
+                        name: '首页',
+                        url: '/Home/Welcome',
+                        closable: false
+                    }]
+                }
+            },
+            methods: {
+                removeTab(targetName) {
+                    let tabs = this.tabs;
+                    let activeName = this.currentTab;
+                    if (activeName === targetName) {
+                        tabs.forEach((tab, index) => {
+                            if (tab.name === targetName) {
+                                let nextTab = tabs[index + 1] || tabs[index - 1];
+                                if (nextTab) {
+                                    activeName = nextTab.name;
+                                }
+                            }
+                        });
+                    }
+
+                    this.currentTab = activeName;
+                    this.tabs = tabs.filter(tab => tab.name !== targetName);
+                },
+                addTab(tab) {
+                    if (this.tabs.length >= 20) {
+                        this.$message.error('最多打开20个标签，请先关闭一些标签');
+                        return;
+                    }
+
+                    if (this.tabs.length === 0 || this.tabs.filter(item => {
+                        return item.title === tab.label;
+                    }).length === 0) {
+                        this.tabs.push({
+                            title: tab.label,
+                            name: tab.label,
+                            url: tab.url,
+                            closable: true
+                        });
+                    }
+
+                    this.currentTab = tab.label;
+                },
+                handleCommand(command) {
+                    switch (command) {
+                        case 'logOut': this.logOut(); break;
+                    }
+                },
+                logOut() {
+                    axios.post('/Home/LogOut').then(res => {
+                        window.location.replace('/Home/Login');
+                    })
+                },
+                loadMenu() {
+                    axios.get('/SysMenu/GetMenus').then(res => {
+                        if (res.data.ResultCode === 0) {
+                            this.menus = res.data.Data;
+                        }
+                    })
+                }
+            },
+            mounted() {
+                this.loadMenu();
+            }
+        })
+    </script>
+</body>
+</html>
